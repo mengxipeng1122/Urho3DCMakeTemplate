@@ -49,9 +49,9 @@ void InputMaster::HandleKeyDown(StringHash eventType, VariantMap &eventData)
 
     switch (key){
         //Exit when ESC is pressed
-    //case KEY_ESC:{
-    //    masterControl_->Exit();
-    //} break;
+    case KEY_ESCAPE:{
+        masterControl_->Exit();
+    } break;
         //Take screenshot
     case KEY_9:{
         Graphics* graphics = GetSubsystem<Graphics>();

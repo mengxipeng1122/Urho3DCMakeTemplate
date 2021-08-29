@@ -14,6 +14,8 @@ if (COMMAND cmake_policy)
     cmake_policy (SET CMP0063 OLD)
 endif ()
 # Set CMake modules search path
+set(URHO3D_BASE_INCLUDE_DIR ${URHO3D_HOME}/build.mac/include/Urho3D ) 
+set(URHO3D_LIBRARIES ${URHO3D_HOME}/../Urho3D/build.mac/lib/libUrho3D.a ) 
 set (CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake/Modules)
 # Include Urho3D Cmake common module
 include (UrhoCommon)
@@ -29,14 +31,7 @@ setup_main_executable ()
 get_target_property(TARGET_INCLUDES ${TARGET_NAME} INCLUDE_DIRECTORIES)
 list(REMOVE_ITEM TARGET_INCLUDES "/usr/local/include")
 list(APPEND TARGET_INCLUDES "/usr/local/include" )
-message( "TARGET_INCLUDES ${TARGET_INCLUDES}")
-foreach(INC_DIR ${TARGET_INCLUDES})
-    message( "INC_DIR ${INC_DIR}")
-endforeach()
-
 set_target_properties(${TARGET_NAME}  PROPERTIES INCLUDE_DIRECTORIES "${TARGET_INCLUDES}")
 
 
-message( "TARGET_NAME ${TARGET_NAME} ")
-message( "TARGET_INCLUDES ${TARGET_INCLUDES}")
 
